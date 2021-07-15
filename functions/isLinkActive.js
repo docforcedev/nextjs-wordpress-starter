@@ -25,7 +25,7 @@ export default function isLinkActive(asPath, path) {
  * @param  {string} str The string to search and remove trailing slash.
  * @return {string}     The formatted string.
  */
-function stripTrailingSlash(str) {
+export function stripTrailingSlash(str) {
   if (str.substr(-1) === '/' && str.length > 1) {
     return str.substr(0, str.length - 1)
   }

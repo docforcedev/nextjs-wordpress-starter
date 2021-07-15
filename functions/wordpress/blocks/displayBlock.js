@@ -16,6 +16,9 @@ const BlockCode = dynamic(() =>
 const BlockEmbed = dynamic(() =>
   import('@/components/blocks/Gutenberg/BlockEmbed')
 )
+const BlockFreeform = dynamic(() =>
+  import('@/components/blocks/Gutenberg/BlockFreeform')
+)
 const BlockMediaText = dynamic(() =>
   import('@/components/blocks/Gutenberg/BlockMediaText')
 )
@@ -124,6 +127,9 @@ export default function displayBlock(block, index) {
       return <LzbBlockHero attributes={attributes} key={index} />
     case 'acf/acf-media-text':
       return <AcfBlockMediaText attributes={attributes} key={index} />
+    case 'core/freeform':
+    case 'core/html':
+      return <BlockFreeform {...attributes} innerBlocks={innerBlocks} key={index} />
     default:
       return <pre key={index}>{JSON.stringify(block, null, 2)}</pre>
   }

@@ -45,7 +45,7 @@ export default function Footer({social, siteTitle, menu}) {
                   <>
                     {' '}
                     &middot;{' '}
-                    <Link href={value}>
+                    <Link href={value} key={key}>
                       <a>{key}</a>
                     </Link>
                   </>

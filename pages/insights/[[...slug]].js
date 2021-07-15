@@ -1,5 +1,6 @@
 import Breadcrumbs from '@/components/atoms/Breadcrumbs'
 import Container from '@/components/atoms/Container'
+import Image from '@/components/atoms/Image'
 import RichText from '@/components/atoms/RichText'
 import Layout from '@/components/common/Layout'
 import Blocks from '@/components/molecules/Blocks'
@@ -40,6 +41,13 @@ export default function BlogPost({post, archive, posts, pagination}) {
         <article className="innerWrap">
           {!!post?.seo?.breadcrumbs && (
             <Breadcrumbs breadcrumbs={post.seo.breadcrumbs} />
+          )}
+          {!!post?.featuredImage?.node?.sourceUrl && (
+            <Image
+              url={post.featuredImage.node.sourceUrl}
+              alt={post.featuredImage.node.altText}
+              nextImageFill
+            />
           )}
           <RichText tag="h1">{post?.title}</RichText>
           <Blocks blocks={post?.blocks} />
