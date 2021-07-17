@@ -6,5 +6,5 @@ module.exports = {
     locales: ['en-US'],
     defaultLocale: 'en-US'
   },
-  basePath: process.env.NEXT_BASE_PATH || ''
+  basePath: '/next-test'
 }
