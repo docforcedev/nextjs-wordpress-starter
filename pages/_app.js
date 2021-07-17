@@ -1,15 +1,15 @@
 import WordPressProvider from '@/components/common/WordPressProvider'
-import {useWpApollo} from '@/lib/wordpress/connector'
+import { useWpApollo } from '@/lib/wordpress/connector'
 import '@/styles/demo.css'
 import '@/styles/index.css'
-import {ApolloProvider} from '@apollo/client'
-import {Provider as NextAuthProvider} from 'next-auth/client'
-import {DefaultSeo} from 'next-seo'
+import { ApolloProvider } from '@apollo/client'
+import { Provider as NextAuthProvider } from 'next-auth/client'
+import { DefaultSeo } from 'next-seo'
 import Error from 'next/error'
 import Link from 'next/link'
-import {useRouter} from 'next/router'
+import { useRouter } from 'next/router'
 import PropTypes from 'prop-types'
-import {useEffect, useState} from 'react'
+import { useEffect, useState } from 'react'
 import 'tailwindcss/tailwind.css'
 
 /**
@@ -37,7 +37,7 @@ export default function App({Component, pageProps}) {
       return
     }
 
-    router.push('/blog')
+    router.push('/insights')
   }, [pageProps, router])
 
   // Check for errors.
