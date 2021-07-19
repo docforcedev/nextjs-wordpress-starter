@@ -3,8 +3,8 @@ import getHeadlessConfigPage from '@/functions/wordpress/postTypes/getHeadlessCo
 import getPostTypeArchive from '@/functions/wordpress/postTypes/getPostTypeArchive'
 import getPostTypeById from '@/functions/wordpress/postTypes/getPostTypeById'
 import getPostTypeTaxonomyArchive from '@/functions/wordpress/postTypes/getPostTypeTaxonomyArchive'
-import {algoliaIndexName} from '@/lib/algolia/connector'
-import {addApolloState} from '@/lib/apolloConfig'
+import { algoliaIndexName } from '@/lib/algolia/connector'
+import { addApolloState } from '@/lib/apolloConfig'
 import archiveQuerySeo from '@/lib/wordpress/_config/archiveQuerySeo'
 import frontendPageSeo from '@/lib/wordpress/_config/frontendPageSeo'
 import headlessConfigPageQuerySeo from '@/lib/wordpress/_config/headlessConfigPageQuerySeo'
@@ -50,6 +50,13 @@ export default async function getPostTypeStaticProps(
 
   /* -- Fallback: return error if params missing. -- */
   if (!params) {
+    console.warn(
+      'getPostTypeStaticProps returning notFound due to missing params: ',
+      params,
+      postType,
+      preview,
+      previewData
+    )
     return '404' !== postType
       ? {
           notFound: true
@@ -112,6 +119,10 @@ export default async function getPostTypeStaticProps(
 
     // Display 404 error page if error encountered.
     if (pageData.error && '404' !== slug) {
+      console.warn(
+        'getPostTypeStaticProps returning notFound due to pageData.error: ',
+        pageData
+      )
       return {
         notFound: true
       }
@@ -170,6 +181,10 @@ export default async function getPostTypeStaticProps(
 
   // Display 404 error page if error encountered.
   if (props.error) {
+    console.warn(
+      'getPostTypeStaticProps returning notFound due to props.error: ',
+      props.error
+    )
     return {
       notFound: true
     }
