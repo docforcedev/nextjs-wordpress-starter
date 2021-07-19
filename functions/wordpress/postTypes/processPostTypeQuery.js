@@ -64,6 +64,14 @@ export default async function processPostTypeQuery(
 
       // Set error props if data not found.
       if (!post) {
+        console.error(
+          'processPostTypeQuery error query: ',
+          JSON.stringify(query)
+        )
+        console.error(
+          'processPostTypeQuery error variables: ',
+          JSON.stringify(variables)
+        )
         console.error('processPosTypeQuery error: ', JSON.stringify(res))
         response.error = true
         response.errorMessage = `An error occurred while trying to retrieve data for ${postType} "${id}."`
