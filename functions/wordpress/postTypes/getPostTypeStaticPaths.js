@@ -1,8 +1,8 @@
 import isHierarchicalPostType from '@/functions/wordpress/postTypes/isHierarchicalPostType'
 import isValidPostType from '@/functions/wordpress/postTypes/isValidPostType'
-import {initializeWpApollo} from '@/lib/wordpress/connector'
-import {postTypes} from '@/lib/wordpress/_config/postTypes'
-import {gql} from '@apollo/client'
+import { initializeWpApollo } from '@/lib/wordpress/connector'
+import { postTypes } from '@/lib/wordpress/_config/postTypes'
+import { gql } from '@apollo/client'
 
 /**
  * Retrieve static paths by post type.
@@ -37,6 +37,9 @@ export default async function getPostTypeStaticPaths(postType) {
       }
     }
   `
+
+  // eslint-disable-next-line no-console
+  console.log('pathField: ', pathField)
 
   // Get/create Apollo instance.
   const apolloClient = initializeWpApollo()
