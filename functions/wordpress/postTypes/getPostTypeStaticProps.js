@@ -183,7 +183,7 @@ export default async function getPostTypeStaticProps(
   if (props.error) {
     console.warn(
       'getPostTypeStaticProps returning notFound due to props.error: ',
-      props.error
+      props
     )
     return {
       notFound: true
